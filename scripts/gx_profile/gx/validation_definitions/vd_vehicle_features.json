@@ -1,0 +1,22 @@
+{
+  "data": {
+    "asset": {
+      "id": "f25b077f-35b2-4325-9926-00cfe9f3a0b1",
+      "name": "vehicle_features"
+    },
+    "batch_definition": {
+      "id": "5b1ac435-d837-4bae-84b5-bb336925b5bd",
+      "name": "vehicle_features_batch"
+    },
+    "datasource": {
+      "id": "1963075c-d6b7-4ad4-bbdb-c56b7f64f4ec",
+      "name": "sqlite_pandas"
+    }
+  },
+  "id": "1cebf056-c90f-4da2-baaa-436bf7ae5e96",
+  "name": "vd_vehicle_features",
+  "suite": {
+    "id": "6340bae5-39d6-453d-99ac-3c00e6add11d",
+    "name": "suite_vehicle_features"
+  }
+}

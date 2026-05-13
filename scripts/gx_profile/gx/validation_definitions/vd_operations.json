@@ -1,0 +1,22 @@
+{
+  "data": {
+    "asset": {
+      "id": "c9d90e19-1047-4e99-b4a1-2a455c2db45d",
+      "name": "operations"
+    },
+    "batch_definition": {
+      "id": "a6e305db-1bd2-41e9-9e6f-7e5e3691456e",
+      "name": "operations_batch"
+    },
+    "datasource": {
+      "id": "1963075c-d6b7-4ad4-bbdb-c56b7f64f4ec",
+      "name": "sqlite_pandas"
+    }
+  },
+  "id": "b572dda6-aee2-4212-86f6-5c5a8d72a488",
+  "name": "vd_operations",
+  "suite": {
+    "id": "944461c0-e123-46f6-8444-c13f6b90338e",
+    "name": "suite_operations"
+  }
+}

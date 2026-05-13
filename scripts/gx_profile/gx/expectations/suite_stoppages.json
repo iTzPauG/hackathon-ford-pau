@@ -1,0 +1,91 @@
+{
+  "expectations": [
+    {
+      "id": "1f83fabf-f980-4127-b127-59d3539214df",
+      "kwargs": {
+        "column": "vehicle_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "616e8a5b-2599-474d-aa72-baf5f31cb546",
+      "kwargs": {
+        "column": "vehicle_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "9c7eaa09-cba3-48c4-9635-4e5cad0f0dd9",
+      "kwargs": {
+        "column": "description"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "dd9dced8-c6ef-4e8c-b997-799ff5a4befe",
+      "kwargs": {
+        "column": "description"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "8758a270-b21a-41b9-9412-0bc9e8e8f41d",
+      "kwargs": {
+        "column": "code"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "8a247b6f-2255-43db-aada-e96c3dfddcde",
+      "kwargs": {
+        "column": "starttime"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "e0261dd7-3b52-4d04-b2ab-f7d226894dab",
+      "kwargs": {
+        "column": "starttime"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "81be8f35-fcb1-47cf-83f6-09689c41acc8",
+      "kwargs": {
+        "column": "endtime"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "2a9c2825-a565-4182-9e01-1e903e2f6a85",
+      "kwargs": {
+        "column": "endtime"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    }
+  ],
+  "id": "99dc07c1-cb0c-4573-9e05-5286d0572ca3",
+  "meta": {
+    "great_expectations_version": "1.17.1"
+  },
+  "name": "suite_stoppages",
+  "notes": null
+}

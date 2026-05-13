@@ -1,0 +1,22 @@
+{
+  "data": {
+    "asset": {
+      "id": "22c6765a-b410-4859-9e42-40bdc68c71e3",
+      "name": "tools"
+    },
+    "batch_definition": {
+      "id": "579ebeb9-acd8-407b-afdb-1bed3e3d41c7",
+      "name": "tools_batch"
+    },
+    "datasource": {
+      "id": "1963075c-d6b7-4ad4-bbdb-c56b7f64f4ec",
+      "name": "sqlite_pandas"
+    }
+  },
+  "id": "6a695bb5-ec2a-4efe-85a4-d50306af78d9",
+  "name": "vd_tools",
+  "suite": {
+    "id": "2a7cecd0-f073-4f03-989f-9fb82b008bd8",
+    "name": "suite_tools"
+  }
+}

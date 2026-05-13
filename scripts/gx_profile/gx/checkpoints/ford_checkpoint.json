@@ -1,0 +1,28 @@
+{
+  "actions": [],
+  "id": "9dbca59a-f74a-441f-aee5-6c5b2d74f708",
+  "name": "ford_checkpoint",
+  "result_format": "SUMMARY",
+  "validation_definitions": [
+    {
+      "id": "b58e5c5b-8ff5-4957-817c-4ed3028a4707",
+      "name": "vd_concerns"
+    },
+    {
+      "id": "b572dda6-aee2-4212-86f6-5c5a8d72a488",
+      "name": "vd_operations"
+    },
+    {
+      "id": "1d2d7303-9f73-41a2-8aec-4120dee97f5b",
+      "name": "vd_stoppages"
+    },
+    {
+      "id": "6a695bb5-ec2a-4efe-85a4-d50306af78d9",
+      "name": "vd_tools"
+    },
+    {
+      "id": "1cebf056-c90f-4da2-baaa-436bf7ae5e96",
+      "name": "vd_vehicle_features"
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "expectations": [
+    {
+      "id": "d82a1036-370b-4155-bd85-3b53d4ceb781",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "0672b023-280b-422c-a715-ae75096179ca",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "617cc592-a290-4249-bec6-78f209e00896",
+      "kwargs": {
+        "column": "id",
+        "max_value": 93110.0,
+        "min_value": 1.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "3db8411f-9b19-4890-a65c-4cb758407ff6",
+      "kwargs": {
+        "column": "id",
+        "max_value": 69833.25,
+        "min_value": 23277.75
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_mean_to_be_between"
+    },
+    {
+      "id": "e92aba02-77ac-436f-ba49-d7317d7a422e",
+      "kwargs": {
+        "column": "vehicle_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "17116741-efa1-42b8-90c4-49f2e23cddc2",
+      "kwargs": {
+        "column": "vehicle_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "e101c880-6d04-462f-b861-074daf9c5f60",
+      "kwargs": {
+        "column": "timestamp"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "64790572-141a-4f65-8d0c-c29cecf877f9",
+      "kwargs": {
+        "column": "timestamp"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "e33f07b8-c14c-45fa-975d-4cea6b7e8bd2",
+      "kwargs": {
+        "column": "point"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "2d5360a5-52b6-4559-8098-3b40d0ac9d74",
+      "kwargs": {
+        "column": "point"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "1460698b-a177-46c9-8332-2a9201ee2a00",
+      "kwargs": {
+        "column": "section"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "1e281e23-6383-4b6e-a55a-34826611f002",
+      "kwargs": {
+        "column": "section"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "2b0bd3ad-b6cd-4ee1-ad87-d2825c72283f",
+      "kwargs": {
+        "column": "cause"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "b4637e57-3a03-4f35-b148-f23f8ec110ce",
+      "kwargs": {
+        "column": "cause"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "90169ad5-48f0-4206-8050-e04a7dba7af3",
+      "kwargs": {
+        "column": "concern"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "604c054d-3abd-4d55-95d2-d54031251f48",
+      "kwargs": {
+        "column": "concern"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    }
+  ],
+  "id": "a812603a-23e4-496a-ba7b-0c224ea68379",
+  "meta": {
+    "great_expectations_version": "1.17.1"
+  },
+  "name": "suite_concerns",
+  "notes": null
+}

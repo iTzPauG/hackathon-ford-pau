@@ -1,0 +1,158 @@
+{
+  "expectations": [
+    {
+      "id": "9a8915b3-4493-484e-820e-edbb22299adc",
+      "kwargs": {
+        "column": "vehicle_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "bdf1a532-133d-4c51-bc6b-ed1a37ad4620",
+      "kwargs": {
+        "column": "vehicle_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "64b3ff64-46c8-4861-9883-5e63cdd81c48",
+      "kwargs": {
+        "column": "operation_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "c57f89c4-ea9f-4429-8cc7-54ab25e8c1b6",
+      "kwargs": {
+        "column": "operation_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "9f1da73b-9192-4c2d-89b6-1b8a0b728c53",
+      "kwargs": {
+        "column": "department_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "9a77c9b3-eef3-4bb7-b289-b37b984aaf1f",
+      "kwargs": {
+        "column": "department_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "2c4e8f5d-9c1a-4b1f-8ec7-42515edd745a",
+      "kwargs": {
+        "column": "line_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "c3c375d8-e394-4c6a-ad2e-7ae97abed0f8",
+      "kwargs": {
+        "column": "line_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "3f2b41ae-77bc-4f3d-bcec-27a771d8af01",
+      "kwargs": {
+        "column": "complexity_factor"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "d16d7f71-8186-471d-8747-a2d52dc7b014",
+      "kwargs": {
+        "column": "complexity_factor"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "259f4ab9-3c42-496c-9ea6-484192052a09",
+      "kwargs": {
+        "column": "complexity_factor",
+        "max_value": 28.9,
+        "min_value": 0.55
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "f271a533-2fbf-4929-96b0-2e2cfe3f6710",
+      "kwargs": {
+        "column": "complexity_factor",
+        "max_value": 24.6982774198176,
+        "min_value": 8.2327591399392
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_mean_to_be_between"
+    },
+    {
+      "id": "7a29c971-6797-4bc3-b220-a75e358a7263",
+      "kwargs": {
+        "column": "entered"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "8336238c-3194-41c8-8181-045f260caac8",
+      "kwargs": {
+        "column": "entered"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "843e2f29-c063-4189-85cf-ba56cb957275",
+      "kwargs": {
+        "column": "exited"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "d248e7c2-73bd-4318-b625-2194d1b75a65",
+      "kwargs": {
+        "column": "exited"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    }
+  ],
+  "id": "944461c0-e123-46f6-8444-c13f6b90338e",
+  "meta": {
+    "great_expectations_version": "1.17.1"
+  },
+  "name": "suite_operations",
+  "notes": null
+}

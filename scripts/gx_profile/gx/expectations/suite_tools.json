@@ -1,0 +1,144 @@
+{
+  "expectations": [
+    {
+      "id": "309687f3-e2ca-47c5-b832-879e82cbb45b",
+      "kwargs": {
+        "column": "vehicle_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "88537018-ee7a-44a3-8ad2-72d74e23a0d7",
+      "kwargs": {
+        "column": "vehicle_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "d8326f9f-950f-41c2-be7f-bcd85b7e80e2",
+      "kwargs": {
+        "column": "tool"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "aebfc9e4-5a27-422d-a9a5-1eb12b75bbdb",
+      "kwargs": {
+        "column": "tool"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "e601d65a-b114-4123-b362-c28e5957e343",
+      "kwargs": {
+        "column": "timestamp"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "0d814629-c295-4aeb-b7c3-20247d832fcb",
+      "kwargs": {
+        "column": "timestamp"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "38a7cde9-c2bc-4f04-a879-019618e5d28b",
+      "kwargs": {
+        "column": "subprocess"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "cb5bd158-2b3f-4c59-bdbb-f83fd0294f46",
+      "kwargs": {
+        "column": "subprocess",
+        "max_value": 30.0,
+        "min_value": 1.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "b994eead-2032-4785-85f8-0d7a1254ce04",
+      "kwargs": {
+        "column": "subprocess",
+        "max_value": 4.819750483699731,
+        "min_value": 1.606583494566577
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_mean_to_be_between"
+    },
+    {
+      "id": "bb01ca95-0556-468b-a0e7-cc9a5941f4ac",
+      "kwargs": {
+        "column": "ok"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "42d3d7e3-745d-45ff-b9fe-3faf77b696bc",
+      "kwargs": {
+        "column": "ok"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "19ae0596-8440-4375-9774-475a318450a7",
+      "kwargs": {
+        "column": "ok",
+        "max_value": 1.0,
+        "min_value": 0.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "e171574e-80bc-4ca0-bc54-1ffacbd8e271",
+      "kwargs": {
+        "column": "ok",
+        "max_value": 1.465261100613385,
+        "min_value": 0.48842036687112833
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_mean_to_be_between"
+    },
+    {
+      "id": "e45e54d0-3716-4033-9872-c072696fca5f",
+      "kwargs": {
+        "column": "concern"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    }
+  ],
+  "id": "2a7cecd0-f073-4f03-989f-9fb82b008bd8",
+  "meta": {
+    "great_expectations_version": "1.17.1"
+  },
+  "name": "suite_tools",
+  "notes": null
+}

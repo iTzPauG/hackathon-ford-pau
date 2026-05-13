@@ -1,0 +1,22 @@
+{
+  "data": {
+    "asset": {
+      "id": "135817d3-1e49-48a7-bf43-735ae1f61ef6",
+      "name": "stoppages"
+    },
+    "batch_definition": {
+      "id": "9044d106-cf9d-47a9-8649-ca9b95a069cd",
+      "name": "stoppages_batch"
+    },
+    "datasource": {
+      "id": "1963075c-d6b7-4ad4-bbdb-c56b7f64f4ec",
+      "name": "sqlite_pandas"
+    }
+  },
+  "id": "1d2d7303-9f73-41a2-8aec-4120dee97f5b",
+  "name": "vd_stoppages",
+  "suite": {
+    "id": "99dc07c1-cb0c-4573-9e05-5286d0572ca3",
+    "name": "suite_stoppages"
+  }
+}

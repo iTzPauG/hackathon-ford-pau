@@ -1,0 +1,42 @@
+# Base de datos SQLite (pesada)
+ford_hackathon.db
+ford_hackathon.db-wal
+ford_hackathon.db-shm
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Reportes y outputs (pesados)
+scripts/profile_report/
+scripts/gx_profile/uncommitted/
+scripts/gx_profile/plugins/custom_data_docs/
+
+# Node (si lo hubiera)
+node_modules/
+package-lock.json
+
+# Otros
+*.log
+.env
+.env.local
