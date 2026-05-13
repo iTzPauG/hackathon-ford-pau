@@ -490,6 +490,158 @@ def plot_vehicle_coverage():
     plt.tight_layout()
     save(fig2, "12_vehicle_intersection.png")
 
+# ── 13. Anomaly detection (outliers for potential deletion) ──────────────────
+
+def detect_outliers_iqr(data, col_name):
+    """Detecta outliers usando IQR (Interquartile Range)"""
+    if data.empty or data[col_name].isna().all():
+        return pd.DataFrame()
+    
+    Q1 = data[col_name].quantile(0.25)
+    Q3 = data[col_name].quantile(0.75)
+    IQR = Q3 - Q1
+    
+    lower_bound = Q1 - 1.5 * IQR
+    upper_bound = Q3 + 1.5 * IQR
+    
+    outliers = data[(data[col_name] < lower_bound) | (data[col_name] > upper_bound)]
+    return outliers, lower_bound, upper_bound
+
+def plot_outliers():
+    print("\n[13] Anomaly detection — outliers & suspicious values")
+    
+    outlier_summary = {}
+    
+    # ─ 13.1: complexity_factor (operations) ──
+    print("  [13.1] operations.complexity_factor")
+    cf = q("SELECT rowid, vehicle_id, complexity_factor FROM operations WHERE complexity_factor IS NOT NULL")
+    if not cf.empty:
+        out_cf, lb_cf, ub_cf = detect_outliers_iqr(cf, "complexity_factor")
+        print(f"      IQR bounds: [{lb_cf:.2f}, {ub_cf:.2f}]")
+        print(f"      Outliers found: {len(out_cf)}")
+        outlier_summary["complexity_factor"] = {
+            "count": len(out_cf),
+            "bounds": (lb_cf, ub_cf),
+            "examples": out_cf.head(3)[["vehicle_id", "complexity_factor"]].values.tolist()
+        }
+    
+    # ─ 13.2: operation duration ──
+    print("  [13.2] operations duration (exited - entered)")
+    ops_dur = q("""
+        SELECT 
+            rowid, vehicle_id,
+            (JULIANDAY(exited) - JULIANDAY(entered)) * 86400 AS duration_s
+        FROM operations
+        WHERE entered IS NOT NULL AND exited IS NOT NULL
+          AND JULIANDAY(exited) >= JULIANDAY(entered)
+    """)
+    if not ops_dur.empty:
+        out_od, lb_od, ub_od = detect_outliers_iqr(ops_dur, "duration_s")
+        print(f"      IQR bounds: [{lb_od:.1f}s, {ub_od:.1f}s]")
+        print(f"      Outliers found: {len(out_od)}")
+        outlier_summary["operation_duration"] = {
+            "count": len(out_od),
+            "bounds": (lb_od, ub_od),
+            "examples": out_od.head(3)[["vehicle_id", "duration_s"]].values.tolist()
+        }
+    
+    # ─ 13.3: stoppage duration ──
+    print("  [13.3] stoppages duration (endtime - starttime)")
+    stop_dur = q("""
+        SELECT 
+            rowid, vehicle_id,
+            (JULIANDAY(endtime) - JULIANDAY(starttime)) * 86400 AS duration_s
+        FROM stoppages
+        WHERE starttime IS NOT NULL AND endtime IS NOT NULL
+          AND JULIANDAY(endtime) >= JULIANDAY(starttime)
+    """)
+    if not stop_dur.empty:
+        out_sd, lb_sd, ub_sd = detect_outliers_iqr(stop_dur, "duration_s")
+        print(f"      IQR bounds: [{lb_sd:.1f}s, {ub_sd:.1f}s]")
+        print(f"      Outliers found: {len(out_sd)}")
+        outlier_summary["stoppage_duration"] = {
+            "count": len(out_sd),
+            "bounds": (lb_sd, ub_sd),
+            "examples": out_sd.head(3)[["vehicle_id", "duration_s"]].values.tolist()
+        }
+    
+    # ─ 13.4: subprocess values (tools) ──
+    print("  [13.4] tools.subprocess (extreme values)")
+    sub = q("SELECT rowid, vehicle_id, tool, subprocess FROM tools WHERE subprocess IS NOT NULL")
+    if not sub.empty:
+        out_sub, lb_sub, ub_sub = detect_outliers_iqr(sub, "subprocess")
+        print(f"      IQR bounds: [{lb_sub:.0f}, {ub_sub:.0f}]")
+        print(f"      Outliers found: {len(out_sub)}")
+        outlier_summary["subprocess"] = {
+            "count": len(out_sub),
+            "bounds": (lb_sub, ub_sub),
+            "examples": out_sub.head(3)[["vehicle_id", "tool", "subprocess"]].values.tolist()
+        }
+    
+    # ─ 13.5: Tools with abnormal ok ratio ──
+    print("  [13.5] tools OK ratio anomalies (by tool)")
+    ok_ratio = q("""
+        SELECT tool, 
+               COUNT(*) as total,
+               SUM(CASE WHEN ok=1 THEN 1 ELSE 0 END) as ok_count,
+               ROUND(100.0 * SUM(CASE WHEN ok=1 THEN 1 ELSE 0 END) / COUNT(*), 2) as ok_pct
+        FROM tools
+        GROUP BY tool
+        HAVING total >= 100
+        ORDER BY ok_pct
+    """)
+    if not ok_ratio.empty:
+        # Tools con 0% or 100% ok rate (anomalous)
+        anomalous_ok = ok_ratio[(ok_ratio['ok_pct'] == 0) | (ok_ratio['ok_pct'] == 100)]
+        print(f"      Tools con 0% o 100% OK rate: {len(anomalous_ok)}")
+        if len(anomalous_ok) > 0:
+            outlier_summary["tools_ok_anomaly"] = {
+                "count": len(anomalous_ok),
+                "examples": anomalous_ok.head(5)[["tool", "ok_pct", "total"]].values.tolist()
+            }
+    
+    # PLOT 13: Boxplots de las métricas numéricas
+    fig, axes = plt.subplots(2, 2, figsize=(14, 10))
+    
+    # Boxplot 1: complexity_factor
+    if not cf.empty:
+        axes[0, 0].boxplot([cf["complexity_factor"]], labels=["complexity_factor"])
+        axes[0, 0].set_title("operations.complexity_factor (with outliers)")
+        axes[0, 0].set_ylabel("value")
+        axes[0, 0].grid(True, alpha=0.3)
+    
+    # Boxplot 2: operation duration
+    if not ops_dur.empty:
+        # Cap a 2 horas para visualización
+        ops_dur_capped = ops_dur[ops_dur["duration_s"] <= 7200]
+        axes[0, 1].boxplot([ops_dur_capped["duration_s"]], labels=["operation_duration"])
+        axes[0, 1].set_title("operations duration (s) — outliers highlighted")
+        axes[0, 1].set_ylabel("seconds")
+        axes[0, 1].grid(True, alpha=0.3)
+    
+    # Boxplot 3: stoppage duration
+    if not stop_dur.empty:
+        stop_dur_capped = stop_dur[stop_dur["duration_s"] <= 7200]
+        axes[1, 0].boxplot([stop_dur_capped["duration_s"]], labels=["stoppage_duration"])
+        axes[1, 0].set_title("stoppages duration (s) — outliers highlighted")
+        axes[1, 0].set_ylabel("seconds")
+        axes[1, 0].grid(True, alpha=0.3)
+    
+    # Subplot 4: OK ratio distribution
+    if not ok_ratio.empty:
+        axes[1, 1].hist(ok_ratio["ok_pct"], bins=20, color=PALETTE[2], edgecolor="white")
+        axes[1, 1].set_title("tools OK ratio distribution (%)")
+        axes[1, 1].set_xlabel("% OK")
+        axes[1, 1].set_ylabel("tools count")
+        axes[1, 1].axvline(x=0, color='red', linestyle='--', linewidth=1, alpha=0.5)
+        axes[1, 1].axvline(x=100, color='red', linestyle='--', linewidth=1, alpha=0.5)
+        axes[1, 1].grid(True, alpha=0.3)
+    
+    plt.tight_layout()
+    save(fig, "13_anomalies_outliers.png")
+    
+    return outlier_summary
+
 # ── main ──────────────────────────────────────────────────────────────────────
 
 def main():
@@ -508,6 +660,7 @@ def main():
     plot_durations()
     plot_top_categoricals()
     plot_vehicle_coverage()
+    outlier_summary = plot_outliers()
 
     print("\n" + "=" * 60)
     print(f"  All charts saved to: {OUT_DIR}/")
